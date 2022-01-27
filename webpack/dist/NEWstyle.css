@@ -1,0 +1,31 @@
+/*!*************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/style.scss ***!
+  \*************************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  max-width: 1400px;
+  padding: 19px 0;
+}
+.header__align {
+  display: flex;
+  justify-content: space-between;
+}
+.header__left {
+  margin-right: 33px;
+}
+
+.one {
+  max-width: 1400px;
+}
+.one__main {
+  background: gray;
+}
+
+.footer {
+  padding: 30px 0;
+  background: black;
+}
