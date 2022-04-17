@@ -1,5 +1,5 @@
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
-
+//ДЗ5
 const app = new Vue({
     el: '#app',
     data: {
@@ -71,7 +71,7 @@ const app = new Vue({
                     this.filtered.push(item);
                 }
             })
-    }
+      }
 
 });
 
