@@ -1,0 +1,76 @@
+<meta charset="utf-8">
+<script>
+    class BirthDay{
+        //статические методы не относятся к объекту, а относятся к классу
+        // Вызываем статик методы по имени класса
+        static congratulate(man){
+                let ageOld = new Date().getFullYear() -  man.year;
+                console.log(`${ man.name}, поздравляем с днем рождения. Вам исполнилось ${++ageOld}`);
+        }
+
+
+        // constructor(p) {
+        //     this.man = p
+        //     this.congratulate();
+        // }
+        // congratulate(){
+        //     let ageOld = new Date().getFullYear() -  this.man.year;
+        //     console.log(`${ this.man.name}, поздравляем с днем рождения. Вам исполнилось ${++ageOld}`);
+        // }
+    }
+
+    class Person{
+        constructor(name,year) {
+            this.name = name;
+            this.year = year;
+        }
+        info(){
+            return `${this.name} родился в ${this.year} году`
+        }
+
+        static compareAges(man1,man2){
+            if(man1.year == man2.year){
+                console.log('Ровестники');
+            }else{
+                if(man1.year > man2.year){
+                    console.log(`${man1.name} младше ${man2.name} на ${man1.year - man2.year}`);
+                }else{
+                    console.log(`${man2.name} младше ${man1.name} на ${man2.year - man1.year}`);
+                }
+            }
+        }
+    }
+
+    // Если в базовм классе есть конструктор с параметрами, его нужно запустить из конструктора потомка
+    class Teacher extends Person{
+        constructor(subject,fio,year) {
+            super(fio,year);
+            this.subject = subject;
+        }
+
+        info(){
+            console.log(`${super.info()}, он ведет предмет ${this.subject}`);
+        }
+    }
+
+    let teacher = new Teacher('Физика','Иванов Иван',1980);
+    teacher.info();
+
+
+    // let man = new Person("Иван",1990);
+    // let man2 = new Person("Петр",1992);
+    // Person.compareAges(man,man2);
+
+
+    //let obj = new BirthDay(man);//при создании объекта вызывается конструктор класса
+    // BirthDay.congratulate(man);
+    // let man2 = new Person("Петр",1992);
+    // let man3 = new Person("Алексей",1993);
+    //
+    // let men = [man,man2,man3];
+    //
+    // men.forEach(item => {
+    //     console.log(item.info());
+    // });
+
+</script>

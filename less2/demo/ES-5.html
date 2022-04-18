@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<script>
+    function Person(firstName, lastName,year){
+        this.name = firstName;
+        this.lastName = lastName;
+        this.year = year;
+    }
+    Person.prototype.calcAge = function()  {
+       return new Date().getFullYear() - this.year;
+    }
+
+    // let man = new Person("Иван","Иванов",1990);
+    // console.log(man.calcAge());
+    //
+    // man.profession = 'программист';
+    // man.__proto__.profession = 'админ';
+    // console.log(man);
+
+    // Наследование классов требует соблюдение алгоритма:
+    // 1) В функции конструкторе потомка необходимо вызывать базовый конструктор для объекта потомка
+    // 2) Если у класса потомка есть уникальные свойства, их нужно отдельно инициализировать
+    // 3) Импортируем прототип базового класса
+    function Teacher(subject,...properties){
+        Person.apply(this,properties);
+        this.subject = subject;
+    }
+    Teacher.prototype = Object.create(Person.prototype);
+    Teacher.prototype.construct = Person;
+
+    let teacher = new Teacher("Математика","Иван","Иванов",1980);
+    console.log(teacher);
+</script>
